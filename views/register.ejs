@@ -3,4 +3,44 @@
 
 <h1>Register</h1>
 
+<% if (flash) { %>
+    <p><%= flash %></p>
+<% } %>
+
+<form action="/register" method="POST">
+    <div>
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required>
+    </div>
+    <div>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+    </div>
+    <div>
+        <label for="first_name">First Name</label>
+        <input type="text" id="first_name" name="first_name" required>
+    </div>
+    <div>
+        <label for="last_name">Last Name</label>
+        <input type="text" id="last_name" name="last_name" required>
+    </div>
+    <div>
+        <label for="user_email">Email</label>
+        <input type="email" id="user_email" name="user_email" required>
+    </div>
+    <div>
+        <label for="location_city">City</label>
+        <input type="text" id="location_city" name="location_city" required>
+    </div>
+    <div>
+        <label for="location_state">State</label>
+        <input type="text" id="location_state" name="location_state" required>
+    </div>
+    <div>
+        <label for="biography">Biography</label>
+        <input type="text" id="biography" name="biography" required>
+    </div>
+    <button type="submit">Register</button>
+</form>
+
 <%- include('partials/footer') %>
