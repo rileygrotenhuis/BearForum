@@ -1,0 +1,72 @@
+HOME ROUTES (http://localhost:3000/):
+    GET '/' =>
+        - READ all of the forum posts from the database
+        - Render those forum posts into the index.ejs file to display the forum's posts feed
+
+LOGIN ROUTES (http://localhost:3000/login):
+    GET '/login' =>
+        - Render the login.ejs file which will display the User Login Form
+    POST '/login' =>
+        - Take the email and password from the User Login Form and create a new User model object
+        - Using the newly created User model object, search for a User in the database that matches that email and password
+        - If the User exists in the database, use Passport.js to authenticate the User back to the Home Page (http:localhost:3000)
+        - Otherwise, redirect the User back to the Login Page (http://localhost:3000/register)
+
+REGISTER ROUTES (http://localhost:3000/register):
+    GET '/register' =>
+        - Render the register.ejs file which will display the User Registration Form
+    POST '/register' =>
+        - Take the parameters from the User Registration Form and create a new User model object
+        - Add a new User to the database using the newly created User model object
+        - Redirect the User to the Login Page (http://localhost:3000/login)
+
+CREATE ROUTES (http://localhost:3000/create):
+    GET '/create' =>
+        - Render the create.ejs file which will display the Create New Post Form
+    POST '/create' =>
+        - Take the parameters from the Create New Post Form and create a new Post model object
+        - Add a new Post to the database using the newly created User model object
+        - Redirect the User to the Home Page (http://localhost:3000/)
+
+POST ROUTES (http://localhost:3000/post):
+    GET '/view/:postID' =>
+        - Query through the database and search for the post with the PostID which matches the one given in the URL parameters
+        - Create a Post model object with the newly found post from the database
+        - Using the newly created Post model object, render it with the view.ejs file to display an individual Post to the User
+    GET '/post/:postID/update' =>
+        - Query through the database and search for the post with the PostID which matches the one given in the URL parameter
+        - Create a Post model object with the newly found post from the database
+        - Using the newly created Post model object, render it with the update.ejs file to display the Update Post Form with the already filled in data
+    PUT '/post/:postID/update' =>
+        - Take the parameters from the Update Post Form and create a new Post model object
+        - Using the newly created Post model object, update that post in the database which matches the Post model object's PostID with the newly updated information
+    DELETE '/post/:postID/delete' =>
+        - Delete the post from the database which has the PostID which matches the one given in the URL parameters
+
+USER ROUTES (http://localhost:3000/user):
+    GET '/user/:userID' =>
+        - Query through the database and search for the User with the UserID which matches the one given in the URL parameters
+        - Create a User model object with the newly found user from the database
+        - Query through the database and search for each Post created by the User found in the first query
+        - Using the newly created User model object and the list of all posts from this User, render it with the user.ejs file to display the User's information and a feed of all of their posts
+    GET '/user/:userID/update' =>
+        - Query through the database and search for the User with the UserID which matches the one given in the URL parameter
+        - Create a User model object with the newly found post from the database
+        - Using the newly created User model object, render it with the update.ejs file to display the Update User Form with the already filled in data
+    PUT '/user/:userID/update' =>
+        - Take the parameters from the Update User Form and create a new User model object 
+        - Using the newly created User model object, update that User in the database which matches the User model object's UserID with the newly updated information
+    DELETE '/user/:userID' =>
+        - Delete the User from the database which has the UserID which matches the one given in the URL parameters
+
+ADMIN ROUTES (http://localhost:3000/admin):
+    GET '/admin' =>
+        - Query through the database and selects all of the Users with all of their given information
+        - Using all of the Users found in the database with the above query, render the admin.ejs file which will display a table of all of the Users and their information
+    GET '/admin/login' =>
+        - render the adminlogin.ejs file which will display the Admin Login Form
+    POST '/admin/login' =>
+        - Take the email and password from the Admin Login Form and create a new Admin model object
+        - Using the newly created Admin model object, search for a Admin in the database that matches that email and password
+        - If the Admin exists in the database, use Passport.js to authenticate the Admin back to the Admin Home Page (http:localhost:3000/admin)
+        - Otherwise, redirect the User back to the Admin Login Page (http://localhost:3000/admin/login)
