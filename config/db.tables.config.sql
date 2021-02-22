@@ -24,5 +24,5 @@ CREATE TABLE posts (
     author varchar(25),
     date_posted varchar(10),
     content varchar(255),
-    PRIMARY KEY (author) REFERENCES (users)  
+    FOREIGN KEY (author) REFERENCES users
 );
