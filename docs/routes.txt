@@ -29,7 +29,7 @@ CREATE ROUTES (http://localhost:3000/create):
         - Redirect the User to the Home Page (http://localhost:3000/)
 
 POST ROUTES (http://localhost:3000/post):
-    GET '/view/:postID' =>
+    GET '/post/:postID' =>
         - Query through the database and search for the post with the PostID which matches the one given in the URL parameters
         - Create a Post model object with the newly found post from the database
         - Using the newly created Post model object, render it with the view.ejs file to display an individual Post to the User
@@ -70,3 +70,9 @@ ADMIN ROUTES (http://localhost:3000/admin):
         - Using the newly created Admin model object, search for a Admin in the database that matches that email and password
         - If the Admin exists in the database, use Passport.js to authenticate the Admin back to the Admin Home Page (http:localhost:3000/admin)
         - Otherwise, redirect the User back to the Admin Login Page (http://localhost:3000/admin/login)
+    GET '/admin/create' =>
+        - Render the create.ejs file which will display the Create New Admin Form
+    POST '/admin/create' =>
+        - Take the parameters from the Create New Admin Form and create a new Admin model object
+        - Add a new Admin to the database using the newly created Admin model object
+        - Redirect the user to the Admin Login Page (http://localhost:3000/admin/login)
