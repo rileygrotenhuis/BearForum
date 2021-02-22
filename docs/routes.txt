@@ -56,7 +56,7 @@ USER ROUTES (http://localhost:3000/user):
     PUT '/user/:userID/update' =>
         - Take the parameters from the Update User Form and create a new User model object 
         - Using the newly created User model object, update that User in the database which matches the User model object's UserID with the newly updated information
-    DELETE '/user/:userID' =>
+    DELETE '/user/:userID/delete' =>
         - Delete the User from the database which has the UserID which matches the one given in the URL parameters
 
 ADMIN ROUTES (http://localhost:3000/admin):
