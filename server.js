@@ -31,7 +31,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(methodOverride('_method'));``
 
-// GET Home Page => '/'
+// GET '/' => Renders the Home Page with the data of an authenticated User if it exists
 app.get('/', (req, res) => {
     res.render('index', { user: req.user });
 });

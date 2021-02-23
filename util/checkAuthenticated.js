@@ -1,4 +1,4 @@
-// Authenticated Check
+// Checks if a user not already authenticated
 function checkAuthenticated (req, res, next) {
     if (req.isAuthenticated()) {
         return next();

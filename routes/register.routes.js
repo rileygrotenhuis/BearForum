@@ -6,12 +6,12 @@ const checkAuthenticated = require('../util/checkAuthenticated');
 const checkNotAuthenticated = require('../util/checkNotAuthenticated');
 const passport = require('passport');
 
-// GET Register Page => '/register'
+// GET '/register' => Renders the Registration Form
 router.get('/register', checkNotAuthenticated, (req, res) => {
     res.render('register', { flash: req.flash('msg') });
 });
 
-// POST Register Page => '/register'
+// POST '/register' => Takes the information from the Registration Form, creates a new User and adds it to the database
 router.post('/register', checkNotAuthenticated, async (req, res) => {
     try {
         // Query through the db for a User with the Username given in the Registration Form
