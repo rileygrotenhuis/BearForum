@@ -11,6 +11,8 @@ LOGIN ROUTES (http://localhost:3000/login):
         - Using the newly created User model object, search for a User in the database that matches that email and password
         - If the User exists in the database, use Passport.js to authenticate the User back to the Home Page (http:localhost:3000)
         - Otherwise, redirect the User back to the Login Page (http://localhost:3000/register)
+    DELETE '/logout' =>
+        - Uses the Passport.js module to log the authenticated User out and redirects the User back to the Login Page (http://localhost:3000/login)
 
 REGISTER ROUTES (http://localhost:3000/register):
     GET '/register' =>
@@ -29,34 +31,34 @@ CREATE ROUTES (http://localhost:3000/create):
         - Redirect the User to the Home Page (http://localhost:3000/)
 
 POST ROUTES (http://localhost:3000/post):
-    GET '/post/:postID' =>
+    GET '/:userID/:postID' =>
         - Query through the database and search for the post with the PostID which matches the one given in the URL parameters
         - Create a Post model object with the newly found post from the database
         - Using the newly created Post model object, render it with the view.ejs file to display an individual Post to the User
-    GET '/post/:postID/update' =>
+    GET '/:userID/:postID/update' =>
         - Query through the database and search for the post with the PostID which matches the one given in the URL parameter
         - Create a Post model object with the newly found post from the database
         - Using the newly created Post model object, render it with the update.ejs file to display the Update Post Form with the already filled in data
-    PUT '/post/:postID/update' =>
+    PUT '/:userID/:postID/update' =>
         - Take the parameters from the Update Post Form and create a new Post model object
         - Using the newly created Post model object, update that post in the database which matches the Post model object's PostID with the newly updated information
-    DELETE '/post/:postID/delete' =>
+    DELETE '/:userID/:postID/delete' =>
         - Delete the post from the database which has the PostID which matches the one given in the URL parameters
 
 USER ROUTES (http://localhost:3000/user):
-    GET '/user/:userID' =>
+    GET '/:userID' =>
         - Query through the database and search for the User with the UserID which matches the one given in the URL parameters
         - Create a User model object with the newly found user from the database
         - Query through the database and search for each Post created by the User found in the first query
         - Using the newly created User model object and the list of all posts from this User, render it with the user.ejs file to display the User's information and a feed of all of their posts
-    GET '/user/:userID/update' =>
+    GET '/:userID/update' =>
         - Query through the database and search for the User with the UserID which matches the one given in the URL parameter
         - Create a User model object with the newly found post from the database
         - Using the newly created User model object, render it with the update.ejs file to display the Update User Form with the already filled in data
-    PUT '/user/:userID/update' =>
+    PUT '/:userID/update' =>
         - Take the parameters from the Update User Form and create a new User model object 
         - Using the newly created User model object, update that User in the database which matches the User model object's UserID with the newly updated information
-    DELETE '/user/:userID/delete' =>
+    DELETE ':userID/delete' =>
         - Delete the User from the database which has the UserID which matches the one given in the URL parameters
 
 ADMIN ROUTES (http://localhost:3000/admin):
