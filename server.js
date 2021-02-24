@@ -32,8 +32,17 @@ app.use(passport.session());
 app.use(methodOverride('_method'));``
 
 // GET '/' => Renders the Home Page with the data of an authenticated User if it exists
-app.get('/', (req, res) => {
-    res.render('index', { user: req.user });
+app.get('/', async (req, res) => {
+    try {   
+        // Get all of the Posts from the database
+        const posts = await pool.query("SELECT * FROM posts");
+        res.render('index', { 
+            user: req.user,
+            posts: posts.rows
+        });
+    } catch {
+        res.send('An error has occured');
+    }
 });
 
 // Routes
