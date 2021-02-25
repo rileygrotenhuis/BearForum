@@ -18,11 +18,11 @@ CREATE TABLE users (
 
 /* Create posts Table */
 CREATE TABLE posts (
-    post_id varchar(25) PRIMARY KEY,
+    post_id varchar(100) PRIMARY KEY,
     title varchar(25),
     topic varchar(25),
     author varchar(25),
-    date_posted varchar(10),
+    date_posted varchar(100),
     content varchar(255),
     FOREIGN KEY (author) REFERENCES users
 );
