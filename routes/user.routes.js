@@ -52,4 +52,20 @@ router.put('/:userID/update', checkAuthenticated, async (req, res) => {
     }
 });
 
+// DELETE '/:userID/delete' => Deletes a user from the database as well as all of their posts
+router.delete('/:userID/delete', checkAuthenticated, async (req, res) => {
+    try {
+        // Delete all posts from that User
+        await pool.query("DELETE FROM posts WHERE author = $1", [req.params.userID]);
+        // Delete the User from the datab
+        await pool.query("DELETE FROM users WHERE username = $1", [req.params.userID]);
+        // Log user out and redirect user back to Home Page
+        req.logOut();
+        res.redirect('/');
+    } catch (e) {
+        console.error(e);
+        res.redirect('/' + req.params.userID);
+    }
+});
+
 module.exports = router;
