@@ -50,6 +50,8 @@ const loginRoutes = require('./routes/login.routes');
 app.use(loginRoutes);
 const registerRoutes = require('./routes/register.routes');
 app.use(registerRoutes);
+const createRoutes = require('./routes/create.routes');
+app.use(createRoutes);
 
 // Listen
 app.listen(3000, () => {
