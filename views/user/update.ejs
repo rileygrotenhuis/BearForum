@@ -1,0 +1,43 @@
+<%- include('../partials/header') %>
+<%- include('../partials/navbar') %>
+
+<div class="container w-50 justify-center">
+    <h1>Update Account</h1>
+    <form action="/<%= user.username %>/update?_method=PUT" method="POST">
+        <div>
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" value="<%= user.username %>" readonly="true" required>
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" value="<%= user.user_password %>" readonly="true" required>
+        </div>
+        <div>
+            <label for="first_name">First Name</label>
+            <input type="text" id="first_name" name="first_name" value="<%= user.first_name %>" required>
+        </div>
+        <div>
+            <label for="last_name">Last Name</label>
+            <input type="text" id="last_name" name="last_name" value="<%= user.last_name %>" required>
+        </div>
+        <div>
+            <label for="user_email">Email</label>
+            <input type="email" id="user_email" name="user_email" value="<%= user.user_email %>" required>
+        </div>
+        <div>
+            <label for="location_city">City</label>
+            <input type="text" id="location_city" name="location_city" value="<%= user.location_city %>" required>
+        </div>
+        <div>
+            <label for="location_state">State</label>
+            <input type="text" id="location_state" name="location_state" value="<%= user.location_state %>" required>
+        </div>
+        <div>
+            <label for="biography">Biography</label>
+            <input type="text" id="biography" name="biography" value="<%= user.biography %>" required>
+        </div>
+        <button type="submit">Update</button>
+    </form>
+</div>
+
+<%- include('../partials/footer') %>

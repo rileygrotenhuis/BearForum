@@ -27,4 +27,29 @@ router.get('/:userID', async (req, res) => {
     }
 });
 
+// GET '/:userID/update' => Renders the Update User Information Form with the given information already included
+router.get('/:userID/update', checkAuthenticated, async (req, res) => {
+    try {   
+        res.render('user/update', {
+            user: req.user
+        });
+    } catch (e) {
+        console.error(e);
+        res.redirect('/' + req.params.userID);
+    }
+});
+
+// PUT '/:userID/update' => Updates the database with the new information
+router.put('/:userID/update', checkAuthenticated, async (req, res) => {
+    try {
+        // Update the database with the new information given from the form
+        await pool.query("UPDATE users SET first_name = $1, last_name = $2, user_email = $3, location_city = $4, location_state = $5, biography = $6 WHERE username = $7", [req.body.first_name, req.body.last_name, req.body.user_email, req.body.location_city, req.body.location_state, req.body.biography, req.params.userID]);
+        // Redirect back to the User Page
+        res.redirect('/' + req.params.userID);
+    } catch (e) {
+        console.error(e);
+        res.redirect('/' + req.params.userID);
+    }
+});
+
 module.exports = router;
