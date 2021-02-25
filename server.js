@@ -52,6 +52,8 @@ const registerRoutes = require('./routes/register.routes');
 app.use(registerRoutes);
 const createRoutes = require('./routes/create.routes');
 app.use(createRoutes);
+const userRoutes = require('./routes/user.routes');
+app.use(userRoutes);
 
 // Listen
 app.listen(3000, () => {
