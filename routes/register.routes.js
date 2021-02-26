@@ -8,7 +8,10 @@ const passport = require('passport');
 
 // GET '/register' => Renders the Registration Form
 router.get('/register', checkNotAuthenticated, (req, res) => {
-    res.render('register', { flash: req.flash('msg') });
+    res.render('register', { 
+        flash: req.flash('msg'),
+        user: req.user
+    });
 });
 
 // POST '/register' => Takes the information from the Registration Form, creates a new User and adds it to the database
