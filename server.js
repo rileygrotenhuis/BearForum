@@ -54,6 +54,8 @@ const createRoutes = require('./routes/create.routes');
 app.use(createRoutes);
 const userRoutes = require('./routes/user.routes');
 app.use(userRoutes);
+const postRoutes = require('./routes/post.routes');
+app.use(postRoutes);
 
 // Listen
 app.listen(3000, () => {

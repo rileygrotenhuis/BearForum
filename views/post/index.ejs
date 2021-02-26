@@ -1,0 +1,24 @@
+<%- include('../partials/header') %>
+<%- include('../partials/navbar') %>
+
+<div class="container w-50 justify-center">
+    <div>
+        <hr>
+        <h1><%= post.title %></h1>
+        <p><a href="/<%= post.author %>">
+            <%= post.author %>
+        </a></p>
+        <p>Topic: <%= post.topic %></p>
+        <p>Date Posted: <%= post.date_posted %></p>
+        <p><%= post.content %></p>
+        <% if (user) { %>
+            <% if (post.author == user.username) { %>
+                <button>Update</button>
+                <button>Delete</button>
+            <% } %>
+        <% } %>
+        <hr>
+    </div>
+</div>
+
+<%- include('../partials/footer') %>

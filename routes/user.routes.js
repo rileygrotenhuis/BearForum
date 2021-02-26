@@ -16,7 +16,7 @@ router.get('/:userID', async (req, res) => {
         const posts = await pool.query("SELECT * FROM posts WHERE author = $1", [req.params.userID]);
 
         // Render the User page with their User data and all of their posts
-        res.render('user/index', {
+        res.render('../views/user/index', {
             user: user.rows[0],
             posts: posts.rows,
             currUser: req.user
@@ -30,7 +30,7 @@ router.get('/:userID', async (req, res) => {
 // GET '/:userID/update' => Renders the Update User Information Form with the given information already included
 router.get('/:userID/update', checkAuthenticated, async (req, res) => {
     try {   
-        res.render('user/update', {
+        res.render('../views/user/update', {
             user: req.user
         });
     } catch (e) {
