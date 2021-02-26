@@ -13,7 +13,7 @@
         <p><%= post.content %></p>
         <% if (user) { %>
             <% if (post.author == user.username) { %>
-                <button>Update</button>
+                <a href="/<%= user.username %>/<%= post.post_id %>/update">Update</a>
                 <button>Delete</button>
             <% } %>
         <% } %>

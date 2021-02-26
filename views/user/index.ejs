@@ -30,7 +30,7 @@
             <p><%= posts[i].content %></p>
             <% if (currUser) { %>
                 <% if (posts[i].author == user.username) { %>
-                    <button>Update</button>
+                    <a href="/<%= currUser.username %>/<%= posts[i].post_id %>/update">Update</a>
                     <button>Delete</button>
                 <% } %>
             <% } %>
