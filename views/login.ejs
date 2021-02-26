@@ -1,0 +1,27 @@
+<%- include('partials/header') %>
+<%- include('partials/navbar') %>
+
+
+<div class="container w-50 justify-center">
+    <h1>Login</h1>
+
+    <% if (messages.error) { %>
+        <%= messages.error %>
+    <% } %>
+
+    <form action="/login" method="POST">
+        <div>
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div>
+            <label for="username">Password</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <button type="submit">Login</button>
+    </form>
+
+    <a href="/register">Register</a>
+</div>
+
+<%- include('partials/footer') %>
