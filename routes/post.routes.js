@@ -49,4 +49,17 @@ router.put('/:userID/:postID/update', checkAuthenticated, async (req, res) => {
     }
 });
 
+// DELETE '/:userID/:postID/delete' => Delete a post in the database
+router.delete('/:userID/:postID/delete', checkAuthenticated, async (req, res) => {
+    try {
+        // Delete the given post
+        await pool.query("DELETE FROM posts WHERE post_id = $1", [req.params.postID]);
+        // Redirect the User back to the Home Page
+        res.redirect('/');
+    } catch (e) {
+        console.error(e);
+        res.redirect('/');
+    }
+});
+
 module.exports = router;

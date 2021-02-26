@@ -31,7 +31,9 @@
             <% if (currUser) { %>
                 <% if (posts[i].author == user.username) { %>
                     <a href="/<%= currUser.username %>/<%= posts[i].post_id %>/update">Update</a>
-                    <button>Delete</button>
+                    <form action="/<%= currUser.username %>/<%= posts[i].post_id %>/delete?_method=DELETE" method="POST">
+                        <button type="submit">Delete</button>
+                    </form>
                 <% } %>
             <% } %>
             <hr>
