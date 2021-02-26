@@ -8,6 +8,9 @@
         <ul class="navbar-nav">
           <% if (user) { %>
             <li class="navbar-nav">
+              <a class="nav-link" href="/<%= user.username %>">Profile</a>
+            </li>
+            <li class="navbar-nav">
               <form action="/logout?_method=DELETE" method="POST">
                 <button class="nav-link btn btn-sm" type="submit">Logout</button>
               </form>
