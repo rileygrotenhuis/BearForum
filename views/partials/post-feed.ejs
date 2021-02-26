@@ -1,0 +1,21 @@
+<div>
+    <hr>
+    <h1><a href="/<%= post.author %>/<%= post.post_id %>">
+        <%= post.title %>
+    </a></h1>
+    <p><a href="/<%= post.author %>">
+        <%= post.author %>
+    </a></p>
+    <p>Topic: <%= post.topic %></p>
+    <p>Date Posted: <%= post.date_posted %></p>
+    <p><%= post.content %></p>
+    <% if (user) { %>
+        <% if (post.author == user.username) { %>
+            <a href="/<%= user.username %>/<%= post.post_id %>/update">Update</a>
+            <form action="/<%= user.username %>/<%= post.post_id %>/delete?_method=DELETE" method="POST">
+                <button type="submit">Delete</button>
+            </form>
+        <% } %>
+    <% } %>
+    <hr>
+</div>

@@ -7,28 +7,11 @@
     <a href="/create">Create New Post</a>
 
     <% for (var i = 0; i < posts.length; i++) { %>
-        <div>
-            <hr>
-            <h1><a href="/<%= posts[i].author %>/<%= posts[i].post_id %>">
-                <%= posts[i].title %>
-            </a></h1>
-            <p><a href="/<%= posts[i].author %>">
-                <%= posts[i].author %>
-            </a></p>
-            <p>Topic: <%= posts[i].topic %></p>
-            <p>Date Posted: <%= posts[i].date_posted %></p>
-            <p><%= posts[i].content %></p>
-            <% if (user) { %>
-                <% if (posts[i].author == user.username) { %>
-                    <a href="/<%= user.username %>/<%= posts[i].post_id %>/update">Update</a>
-                    <form action="/<%= user.username %>/<%= posts[i].post_id %>/delete?_method=DELETE" method="POST">
-                        <button type="submit">Delete</button>
-                    </form>
-                <% } %>
-            <% } %>
-            <hr>
-        </div>
+        <%- include('partials/post-feed', { 
+            user: user,
+            post: posts[i]
+        }) %>
     <% } %>
 </div>
 
-<%- include('partials/footer.ejs') %>
+<%- include('partials/footer') %>
