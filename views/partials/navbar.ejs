@@ -4,16 +4,19 @@
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <% if (user) { %>
-            <li class="navbar-nav">
-              <a class="nav-link" href="/<%= user.username %>">Profile</a>
-            </li>
-            <li class="navbar-nav">
-              <form action="/logout?_method=DELETE" method="POST">
-                <button class="nav-link btn btn-sm" type="submit">Logout</button>
-              </form>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%= user.username %>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="/<%= user.username %>">Profile</a>
+                <form action="/logout?_method=DELETE" method="POST">
+                  <button class="dropdown-item btn btn-sm" type="submit">Logout</button>
+                </form>
+              </div>
             </li>
           <% } else { %>
             <li class="nav-item">
