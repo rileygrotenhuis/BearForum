@@ -7,7 +7,7 @@ const passport = require('passport');
 
 // GET '/login' => Renders the Login Form
 router.get('/login', checkNotAuthenticated, (req, res) => {
-    res.render('login');
+    res.render('login', { user: req.user });
 });
 
 // POST '/login' => Authenticates the User who logged in and redirect them to the Home Page
