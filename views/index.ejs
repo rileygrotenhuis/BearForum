@@ -2,9 +2,7 @@
 <%- include('partials/navbar.ejs', {user: user}) %>
 
 <div class="container w-50 justify-center">
-    <h1>All Posts</h1>
-
-    <a href="/create">Create New Post</a>
+    <a class="btn btn-lg mt-3 mb-3" style="background-color: #5e0009; color: white;" href="/create">Create New Post</a>
 
     <% for (var i = 0; i < posts.length; i++) { %>
         <%- include('partials/post-feed', { 
