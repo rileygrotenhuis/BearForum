@@ -2,46 +2,46 @@
 <%- include('partials/navbar', { user: user }) %>
 
 <div class="container w-50 justify-center">
-    <h1>Register</h1>
+    <h1 class="mt-3">Register</h1>
 
     <% if (flash) { %>
         <p><%= flash %></p>
     <% } %>
 
     <form action="/register" method="POST">
-        <div>
+        <div class="form-group">
             <label for="username">Username</label>
-            <input type="text" id="username" name="username" required>
+            <input class="form-control" type="text" id="username" name="username" required>
         </div>
-        <div>
+        <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
+            <input class="form-control" type="password" id="password" name="password" required>
         </div>
-        <div>
+        <div class="form-group">
             <label for="first_name">First Name</label>
-            <input type="text" id="first_name" name="first_name" required>
+            <input class="form-control" type="text" id="first_name" name="first_name" required>
         </div>
-        <div>
+        <div class="form-group">
             <label for="last_name">Last Name</label>
-            <input type="text" id="last_name" name="last_name" required>
+            <input class="form-control" type="text" id="last_name" name="last_name" required>
         </div>
-        <div>
+        <div class="form-group">
             <label for="user_email">Email</label>
-            <input type="email" id="user_email" name="user_email" required>
+            <input class="form-control" type="email" id="user_email" name="user_email" required>
         </div>
-        <div>
+        <div class="form-group">
             <label for="location_city">City</label>
-            <input type="text" id="location_city" name="location_city" required>
+            <input class="form-control" type="text" id="location_city" name="location_city" required>
         </div>
-        <div>
+        <div class="form-group">
             <label for="location_state">State</label>
-            <input type="text" id="location_state" name="location_state" required>
+            <input class="form-control" type="text" id="location_state" name="location_state" required>
         </div>
-        <div>
+        <div class="form-group">
             <label for="biography">Biography</label>
-            <input type="text" id="biography" name="biography" required>
+            <input class="form-control" type="text" id="biography" name="biography" required>
         </div>
-        <button type="submit">Register</button>
+        <button class="btn btn-md mt-3" style="background-color: #5e0009; color: white;" type="submit">Register</button>
     </form>
 </div>
 
