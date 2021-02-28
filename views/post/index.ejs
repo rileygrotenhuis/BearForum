@@ -1,26 +1,11 @@
 <%- include('../partials/header') %>
-<%- include('../partials/navbar') %>
+<%- include('../partials/navbar', { user: user }) %>
 
-<div class="container w-50 justify-center">
-    <div>
-        <hr>
-        <h1><%= post.title %></h1>
-        <p><a href="/<%= post.author %>">
-            <%= post.author %>
-        </a></p>
-        <p>Topic: <%= post.topic %></p>
-        <p>Date Posted: <%= post.date_posted %></p>
-        <p><%= post.content %></p>
-        <% if (user) { %>
-            <% if (post.author == user.username) { %>
-                <a href="/<%= user.username %>/<%= post.post_id %>/update">Update</a>
-                <form action="/<%= user.username %>/<%= post.post_id %>/delete?_method=DELETE" method="POST">
-                    <button type="submit">Delete</button>
-                </form>
-            <% } %>
-        <% } %>
-        <hr>
-    </div>
+<div class="container w-50 justify-center mt-5">
+    <%- include('../partials/post-feed'), {
+        user: user,
+        post: post
+    } %>
 </div>
 
 <%- include('../partials/footer') %>
