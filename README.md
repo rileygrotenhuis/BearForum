@@ -47,7 +47,7 @@ You can utilize this repository by one of the two ways:
     2. Then you will need to create a new database called `bearforum` and connect to that database
 
         ```sql
-        CREATE DATABASE
+        CREATE DATABASE bearforum
         ```
 
         ```bash
