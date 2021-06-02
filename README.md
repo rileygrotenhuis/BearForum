@@ -149,7 +149,7 @@ You can utilize this repository by one of the two ways:
     cd BearForum
     ```
 
-2. Once you are in the project's folder, you will need to create a `.env` in the root directory and include the following environment variable inside of that file:
+2. Once you are in the project's folder, you will need to create a `.env` file in the root directory and include the following environment variable inside of that file:
 
     ```env
     SESSION_SECRET=[ENTER YOUR SECRET CODE HERE]
