@@ -26,7 +26,7 @@ You can utilize this repository by one of the two ways:
 
 1. Downloading the source code directly from this [link](https://github.com/rileygrotenhuis/BearForum/archive/refs/heads/master.zip)
 
-2. Cloning the repository using your preferred Command Line INterface and running the following command:
+2. Cloning the repository using your preferred Command Line Interface and running the following command:
 
     ```bash
     git clone https://github.com/rileygrotenhuis/BearForum.git
